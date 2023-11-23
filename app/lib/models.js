@@ -40,4 +40,21 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
+const productSchema = new Schema({
+  name_product: {
+    type: String,
+    required: true,
+  },
+  id_product: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  type_product: {
+    type: String,
+  },
+});
+
 export const User = mongoose.models.User || mongoose.model("User", userSchema);
+export const Product =
+  mongoose.models.Product || mongoose.model("Product", productSchema);

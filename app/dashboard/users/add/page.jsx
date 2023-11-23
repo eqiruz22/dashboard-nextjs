@@ -1,61 +1,40 @@
 import React from "react";
 import styles from "@/app/ui/dashboard/users/add/addUser.module.css";
+import { addUser } from "@/app/lib/action";
 
-const optProduct = [
-  {
-    id: 1,
-    name: "Iphone 5",
-    value: "iphone 5",
-  },
-  {
-    id: 2,
-    name: "Iphone 5S",
-    value: "iphone 5s",
-  },
-  {
-    id: 3,
-    name: "Iphone 5C",
-    value: "iphone 5c",
-  },
-  {
-    id: 4,
-    name: "Iphone 6",
-    value: "iphone 6",
-  },
-  {
-    id: 5,
-    name: "Iphone 6S",
-    value: "iphone 6s",
-  },
-  {
-    id: 6,
-    name: "Iphone 7",
-    value: "iphone 7",
-  },
-  {
-    id: 7,
-    name: "Iphone 8",
-    value: "iphone 8",
-  },
-];
 const userAdd = () => {
   return (
     <div className={styles.container}>
-      <form action="" className={styles.form}>
-        <input type="text" placeholder="title" name="title" required />
-        <select name="select" id="select">
-          {optProduct.map((item) => (
-            <option key={item} value={item.value}>
-              {item.name}
-            </option>
-          ))}
+      <form action={addUser} className={styles.form}>
+        <input type="text" placeholder="username" name="username" required />
+        <input
+          type="password"
+          placeholder="password"
+          name="password"
+          required
+        />
+        <input
+          type="email"
+          placeholder="example@example.com"
+          name="email"
+          required
+        />
+        <input type="text" placeholder="+62" name="phone" required />
+        <select name="isAdmin" id="isAdmin">
+          <option value="false" selected>
+            isAdmin
+          </option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
         </select>
-        <input type="number" placeholder="" name="price" />
-        <input type="number" placeholder="" name="stock" />
-        <input type="text" placeholder="" name="color" />
+        <select name="isActive" id="isActive">
+          <option value="false">isActive</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
         <textarea
-          name="desc"
-          id="desc"
+          name="address"
+          id="address"
           rows={16}
           placeholder="description"></textarea>
         <button type="submit">Save</button>
